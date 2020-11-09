@@ -1,27 +1,41 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
-
-import UserList from './components/UsersList';
+import Cookies from "js-cookie"
+import { useSelector, useDispatch } from 'react-redux'
+import { setUser } from './Redux/actions/authActions'
+import LandingPage from "./Pages/LandingPage/LandingPage";
+import LoginPage from './Pages/LoginPage/LoginPage'
 
 
 function App() {
+    const dispatch = useDispatch()
+    const auth = useSelector(state => state.auth)
+
+    useEffect(()=>{
+
+        const generateSession = async () => {
+
+                const res = await fetch("/api/session/token/refresh", {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'access': Cookies.get("access_token_cookie")
+                    },
+                })
+                if (res.ok) {
+                    const data = await res.json()
+                    dispatch(setUser(data))
+                }
+            }
+            generateSession()
+        }
+    ,[])
 
   return (
     <BrowserRouter>
-        <nav>
-            <ul>
-                <li><NavLink to="/" activeclass="active">Home</NavLink></li>
-                <li><NavLink to="/users" activeclass="active">Users</NavLink></li>
-            </ul>
-        </nav>
         <Switch>
-            <Route path="/users">
-                <UserList />
-            </Route>
-
-            <Route path="/">
-                <h1>My Home Page</h1>
-            </Route>
+            <Route path="/" component={LandingPage} />
+            <Route path="/login" component={LoginPage} />
         </Switch>
     </BrowserRouter>
   );
