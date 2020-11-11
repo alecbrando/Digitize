@@ -28,7 +28,7 @@ def sign_up():
     password = request.json.get('password', None)
     if not username or not password or not email:
         return jsonify({'login': False}), 401
-
+    
     hashed_pass = generate_password_hash(password, method='sha256')
 
     new_user = User(username=username, email=email, hashed_password=hashed_pass)

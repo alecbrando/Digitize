@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
 import Cookies from "js-cookie"
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from './Redux/actions/authActions'
-import LandingPage from "./Pages/LandingPage/LandingPage";
+import LandingPage from "./Pages/LandingPage/LandingPage"
 import LoginPage from './Pages/LoginPage/LoginPage'
+import SignUpPage from './Pages/SignupPage/SignupPage'
 
+import { retrieveCameras } from './Redux/actions/cameraActions'
 
 function App() {
     const dispatch = useDispatch()
@@ -31,11 +33,16 @@ function App() {
         }
     ,[])
 
+    useEffect(() => {
+        dispatch(retrieveCameras())
+    }, [dispatch])
+
   return (
     <BrowserRouter>
         <Switch>
-            <Route path="/" component={LandingPage} />
+            <Route path="/" exact component={LandingPage} />
             <Route path="/login" component={LoginPage} />
+            <Route path="/signup" component={SignUpPage} />
         </Switch>
     </BrowserRouter>
   );

@@ -37,11 +37,13 @@ class Camera(db.Model):
 
   def to_dict(self):
     return {
+      "id": self.id,
       "title": self.title,
       "brand": self.brand,
       "type": self.type,
       "price": self.price,
-      "description": self.description
+      "description": self.description,
+      "urls": []
     }
 
   
@@ -75,3 +77,9 @@ class Image(db.Model):
   url_reference = db.Column(db.String(1000), nullable = False)
 
   camera = db.relationship("Camera", back_populates="image")
+
+  def to_dict(self):
+    return {
+      "url": self.url_reference,
+      "camera_id": self.camera_id
+    }

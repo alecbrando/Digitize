@@ -13,7 +13,7 @@ export const setUser = (user) => {
 
 export const removeUser = () => {
     return {
-        type: CREATE_USER
+        type: REMOVE_USER,
     }
 }
 

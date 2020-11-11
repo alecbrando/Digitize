@@ -1,55 +1,20 @@
-/* eslint-disable */
-import React from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import styles from '../../assets/scss/footer.module.scss'
+import Button from '@material-ui/core/Button';
+import { Redirect, Link } from 'react-router-dom'
 
-import styles from "assets/jss/material-kit-pro-react/components/footerStyle.js";
 
-const useStyles = makeStyles(styles);
+export default function Footer() {
 
-export default function Footer(props) {
-  const { children, content, theme, big, className } = props;
-  const classes = useStyles();
-  const themeType =
-    theme === "transparent" || theme == undefined ? false : true;
-  const footerClasses = classNames({
-    [classes.footer]: true,
-    [classes[theme]]: themeType,
-    [classes.big]: big || children !== undefined,
-    [className]: className !== undefined
-  });
-  const aClasses = classNames({
-    [classes.a]: true
-  });
+  const history = useHistory()
 
   return (
-    <footer className={footerClasses}>
-      <div className={classes.container}>
-        {children !== undefined ? (
-          <div>
-            <div className={classes.content}>{children}</div>
-            <hr />
-          </div>
-        ) : (
-          " "
-        )}
-        {content}
-        <div className={classes.clearFix} />
-      </div>
-    </footer>
-  );
+    <div className={styles.footer_Container}>
+    <a href="https://github.com/alecbrando/Digitize" className={styles.smallContainer}><GitHubIcon  fontSize="large" className={styles.logos}/></a>
+    <a href="https://www.linkedin.com/in/alec-garcia-4159b0169/" className={styles.smallContainer}><LinkedInIcon  fontSize="large" className={styles.logos}/></a>
+    </div>
+  )
 }
-
-Footer.propTypes = {
-  theme: PropTypes.oneOf(["dark", "white", "transparent"]),
-  big: PropTypes.bool,
-  content: PropTypes.node.isRequired
-};
