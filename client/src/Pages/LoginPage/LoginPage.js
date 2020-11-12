@@ -31,7 +31,7 @@ export default function LoginPage() {
       <div className={styles.outContainer}>
       <div className={styles.container}>
         <div className={styles.leftContainer}>
-          <img height="500" width="600" src="http://clipart-library.com/images_k/camera-png-transparent/camera-png-transparent-11.png" />
+          <img height="500" width="600" src="https://i.imgur.com/ejG8NLS.png" />
         </div>
         
         <div className={styles.rightContainer}>

@@ -21,5 +21,5 @@ def fetch_images():
             camera_dict[camera_instance['id']] = camera_instance
 
 
-    return jsonify({**camera_dict})
+    return jsonify(camera_dict)
 
