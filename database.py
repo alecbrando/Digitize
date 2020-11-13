@@ -85,7 +85,7 @@ with app.app_context():
   db.session.add(RX100_photo_2)
   db.session.add(RX100_photo_3)
   a7RII = Camera(id = 10, title = 'Sony a7R II', brand = 'Sony', type = 'Mirrorless', description = "Back-illuminated full-frame CMOS 42.4 MP sensor High-speed BIONZ X image processing engine Higher-resolution 4K movie recording 5-axis image stabilization XGA OLED Tru-Finder PlayMemories Camera Apps Wi-Fi / NFC", price = 3199.99, quantity=10)
-  a7RII_photo_1 = Image(camera_id = 10, url_reference = "https://www.beachcamera.com/shop/product/SNILCE7RM2B/Sony-a7R-II-Full-frame-Mirrorless-Interchangeable-Lens-424MP-Camera-Body-Only")
+  a7RII_photo_1 = Image(camera_id = 10, url_reference = "https://www.beachcamera.com/shop/product-image.aspx?size=1200&picId=85757")
   a7RII_photo_2 = Image(camera_id = 10, url_reference = "https://www.beachcamera.com/shop/product-image.aspx?size=500&picId=85760")
   a7RII_photo_3 = Image(camera_id = 10, url_reference = "https://www.beachcamera.com/shop/product-image.aspx?size=500&picId=85762")
   db.session.add(a7RII)

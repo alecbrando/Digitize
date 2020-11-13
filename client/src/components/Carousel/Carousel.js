@@ -16,7 +16,7 @@ export default function CustomCarousel(props)
     return (
         <Carousel className={styles.formatImg} autoPlay>
             {
-                items.map( (item, i) => <img height="600px" width="1325px" key={i} src={item} /> )
+                items.map( (item, i) => <img height="600px" width="1339px" key={i} src={item} /> )
             }
         </Carousel>
     )

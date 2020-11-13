@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector } from 'react-redux';
-
+import Section from '../../components/section/section'
 // core components
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer.js"
@@ -11,20 +11,19 @@ import CustomCarousel from '../../components/Carousel/Carousel'
 
 
 export default function LandingPage() {
+  const [cameras_first, setCameras] = useState()
+  const [cameras_second, setCameras_sec] = useState()
+  const [cameras_third, setCameras_third] = useState()
   const data = useSelector(state => state.cameras)
-  console.log(data)
 
-  const renderOut = () => {
-      const result = Object.keys(data).map(camera => {
-              return (
-                <div>
-                  <img height="500px" src={data[camera].urls[0]}/>
-                </div>
-              )
-      })
+  let arr = []
 
-      return result;
-    }
+    useEffect(() => {
+      Object.keys(data).map(camera =>  arr.push(data[camera]))
+      setCameras(arr.slice(0,5))
+      setCameras_sec(arr.slice(5,10))
+      setCameras_third(arr.slice(10,15))
+    }, [data])
     
   return (
     <div>
@@ -34,10 +33,11 @@ export default function LandingPage() {
           <CustomCarousel/>
         </div>
       </div>
-      <div>
-        {renderOut()}
+      <div className={styles.pictureContainer}>
+        <Section name={'Nikon Collection'} data={cameras_first}/>
+        <Section name={'Sony Collection'} data={cameras_second}/>
+        <Section name={'Canon Collection'} data={cameras_third}/>
       </div>
-      
       <Footer/>
     </div>
   )
