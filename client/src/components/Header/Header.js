@@ -7,6 +7,7 @@ import {useDispatch, useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
 import { NavLink } from 'react-router-dom'
 import { logout } from '../../Redux/actions/authActions'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function Header() {
       return (
         <>
           <Button variant="outlined" onClick={() => dispatch(logout()) }>Logout</Button>
+          <Button variant="outlined"><ShoppingCartIcon/></Button>
         </>
       )
     }

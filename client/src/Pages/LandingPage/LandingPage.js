@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector } from 'react-redux';
-import Section from '../../components/section/section'
+import { Section } from '../../components/section/section'
 // core components
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer.js"
 import styles from "../../assets/scss/landing.module.scss"
 import CustomCarousel from '../../components/Carousel/Carousel'
-
+import Banner from '../../components/BannerSeperator/Banner'
 
 
 
@@ -35,7 +35,13 @@ export default function LandingPage() {
       </div>
       <div className={styles.pictureContainer}>
         <Section name={'Nikon Collection'} data={cameras_first}/>
+        <div className={styles.bannerContainer}>
+          <Banner url={"https://i.imgur.com/SCoQg63.jpg"}/> 
+        </div>
         <Section name={'Sony Collection'} data={cameras_second}/>
+        <div className={styles.bannerContainer}>
+          <Banner url={"https://i.imgur.com/VV5uBT7.jpg"}/> 
+        </div>
         <Section name={'Canon Collection'} data={cameras_third}/>
       </div>
       <Footer/>

@@ -1,5 +1,4 @@
 .container {
-    margin-top: 10px;
     border-left: 1px solid black;
     border-right: 1px solid black;
 }
@@ -10,10 +9,16 @@
 
 
 .pictureContainer {
-    margin-top: 35px;
+    margin-top: 0px;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
     width: 1340px;
+}
+
+.bannerContainer {
+    // margin-top: 50px;
 }
