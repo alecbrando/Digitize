@@ -32,8 +32,7 @@ class Camera(db.Model):
   quantity = db.Column(db.Integer)
 
   image = db.relationship("Image", back_populates="camera")
-  wishList = db.relationship("WishList", back_populates="camera")
-  cart = db.relationship("Cart", back_populates="camera")
+
 
   def to_dict(self):
     return {
@@ -46,28 +45,6 @@ class Camera(db.Model):
       "quantity": self.quantity,
       "urls": []
     }
-
-  
-class WishList(db.Model):
-  __tablename__ = 'wishLists'
-
-  id = db.Column(db.Integer, primary_key = True)
-  camera_id = db.Column(db.Integer, db.ForeignKey('cameras.id'), nullable = False)
-  user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-
-  user = db.relationship("User", back_populates="wishList")
-  camera = db.relationship("Camera", back_populates="wishList")
-
-
-class Cart(db.Model):
-  __tablename__ = 'carts'
-
-  id = db.Column(db.Integer, primary_key = True)
-  camera_id = db.Column(db.Integer, db.ForeignKey('cameras.id'), nullable = False)
-  user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-
-  user = db.relationship("User", back_populates="cart")
-  camera = db.relationship("Camera", back_populates="cart")
 
 
 class Image(db.Model):
