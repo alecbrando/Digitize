@@ -42,8 +42,8 @@ export default function SignUpPage() {
           <input type="text" name="email" className={styles.inputs} value={email} onChange={(e) => setEmail(e.target.value)} />
           <label htmlFor="password" className={styles.labelText}>Password</label>
           <input type="password" name="password"  className={styles.inputs} value={password} onChange={(e) => setPassword(e.target.value)} />
-          <div className={styles.bottomButtons}>
-          <Button variant="contained" onClick={onSignIn}>Sign Up</Button>
+          <div className={styles.buttonContainer}>
+          <button className={styles.bottomButtons} onClick={onSignIn}>Sign Up</button>
         </div>
         </div>
       </div>
