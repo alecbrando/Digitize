@@ -43,6 +43,7 @@ class Camera(db.Model):
       "type": self.type,
       "price": self.price,
       "description": self.description,
+      "quantity": self.quantity,
       "urls": []
     }
 

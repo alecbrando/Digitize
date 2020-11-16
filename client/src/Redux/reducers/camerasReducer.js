@@ -5,7 +5,7 @@ export const cameras = (state = {}, action) => {
         case SET_CAMERAS:
             return action.data;
         case GET_CAMERA:
-            return [...state, action.camera]
+            return {...state, camera: action.camera}
         default:
             return state
     }

@@ -23,7 +23,7 @@ def fetch_images():
 
     return jsonify(camera_dict)
 
-@camera_routes.route('/<int:id>', methods=['POST'])
+@camera_routes.route('/<int:id>')
 def camera(id):
     camera = Camera.query.filter_by(id=id).first()
     images = Image.query.filter_by(camera_id=id).all()

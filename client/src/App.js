@@ -6,8 +6,10 @@ import { setUser } from './Redux/actions/authActions'
 import LandingPage from "./Pages/LandingPage/LandingPage"
 import LoginPage from './Pages/LoginPage/LoginPage'
 import SignUpPage from './Pages/SignupPage/SignupPage'
+import CartPage from './Pages/ShoppingCartPage/CartPage'
 
 import { retrieveCameras } from './Redux/actions/cameraActions'
+import ProductDetail from './Pages/ProductDetail/ProductDetail'
 
 function App() {
     const dispatch = useDispatch()
@@ -43,6 +45,8 @@ function App() {
             <Route path="/" exact component={LandingPage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/signup" component={SignUpPage} />
+            <Route path="/cameras/:id" component={ProductDetail} />
+            <Route path="/cart" component={CartPage} />
         </Switch>
     </BrowserRouter>
   );

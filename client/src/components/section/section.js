@@ -12,7 +12,7 @@ export function Section(props) {
         if(props.data){
             return props.data.map(camera => {
                 return (
-                      <Tile title={camera.title} url={camera.urls[0]} price={camera.price} id={camera.id}/>
+                      <Tile key={camera.id} title={camera.title} url={camera.urls[0]} price={camera.price} id={camera.id}/>
                 )
             })
         }

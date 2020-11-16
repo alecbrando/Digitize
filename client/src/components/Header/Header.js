@@ -13,8 +13,9 @@ export default function Header() {
   const dispatch = useDispatch();
   const currentId = useSelector(state => state.auth.id)
   const history = useHistory()
+  const cart = useSelector(state => state.carts)
   const renderOut = () => {
-    if (!currentId){
+    if (!currentId) {
       return (
         <>
           <Button variant="outlined" onClick={() => history.push('/login')}>Login</Button>
@@ -25,7 +26,7 @@ export default function Header() {
       return (
         <>
           <Button variant="outlined" onClick={() => dispatch(logout()) }>Logout</Button>
-          <Button variant="outlined"><ShoppingCartIcon/></Button>
+          <Button variant="outlined" onClick={() => history.push('/cart')} ><ShoppingCartIcon/>({cart.length})</Button>
         </>
       )
     }
