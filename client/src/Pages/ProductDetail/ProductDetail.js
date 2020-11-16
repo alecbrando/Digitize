@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import styles from '../../assets/scss/product.module.scss'
 import CustomCarousel from '../../components/Carousel/CarouselCamera'
-import {addCart, removeCart} from '../../Redux/actions/cartActions'
+import {addCart} from '../../Redux/actions/cartActions'
 import { useHistory } from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
 
@@ -25,12 +25,11 @@ export default function ProductDetail() {
     const dispatch = useDispatch()
     useEffect(() => {
         let value = window.location.pathname.slice(9)
-        dispatch(camera(value))
+        dispatch(camera(value))  
     }, [])
 
     useEffect(() => {
     if(data) {
-        console.log(data)
         setImages(data.urls)
         setCameraInfo(data.title)
         setSkuNumber(data.id)
@@ -45,10 +44,8 @@ export default function ProductDetail() {
 
     const addToCart = () => {
         if(loggedIn) {
-            console.log(cameraData)
             dispatch(addCart(cameraData))
         }
-
     }
 
     return (
@@ -80,8 +77,8 @@ export default function ProductDetail() {
                         </button>
                         </Link> :
                         <button className={styles.cameraCart} onClick={() => history.push('/login')}>
-                                    Log in
-                        </button>
+                                Log in
+                        </button>   
                         }
                         </div>
                         </div>

@@ -3,8 +3,15 @@ import thunk from 'redux-thunk';
 import {auth} from '../reducers/Authentication'
 import { cameras } from '../reducers/camerasReducer'
 import { carts } from '../reducers/cartReducer'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 let storeEnhancer;
+
+const persistConfig = {
+    key: 'root',
+    storage,
+}
 
 if (process.env.NODE_ENV !== 'production') {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -18,13 +25,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 const ReducerMerger = combineReducers({auth, cameras, carts})
 
+const persistedReducer = persistReducer(persistConfig, ReducerMerger)
 
 const configureStore = (initialState) => {
-    return createStore (
-            ReducerMerger,
-            initialState,
-            storeEnhancer
-        )
+    let store = createStore (persistedReducer,initialState,storeEnhancer )
+    let persistor = persistStore(store)
+    return {store, persistor}
 };
 
 export default configureStore;

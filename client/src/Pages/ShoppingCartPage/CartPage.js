@@ -13,19 +13,27 @@ import CartTile from '../../components/CartTile/CartTile'
 export default function CartPage() {
     const cart = useSelector(state => state.carts)
     const data = useSelector(state => state.cameras.camera)
-    
+    const [price, setPrice]= useState(0)
     const loggedIn = useSelector(state => state.auth.id)
     const history = useHistory()
     const dispatch = useDispatch()
     useEffect(() => {
         let value = window.location.pathname.slice(9)
         dispatch(camera(value))
-    }, [])
+        getPrice();
+    }, [cart])
 
     const renderCart = () => {
-        return cart.map(camera => {
-            return <CartTile key={camera.id} title={camera.title} price={camera.price} url={camera.urls[0]} />
+        return cart.map((camera, i) => {
+            return <CartTile key={i} title={camera.title} price={camera.price} url={camera.urls[0]} id={camera.id} />
         })
+    }
+
+    const getPrice = () => {
+        let total = 0;
+        cart.forEach(camera => total = total + camera.price);
+        total = total.toFixed(2)
+        setPrice(total)
     }
 
     return (
@@ -44,7 +52,8 @@ export default function CartPage() {
                         </div>
                         <div className={styles.bottomHalfCart}>
                             <div>
-                                {data ? renderCart() : ''}
+                                {renderCart()}
+                    
                             </div>
                         </div>
                     </div>
@@ -91,16 +100,16 @@ export default function CartPage() {
                                     Total
                                 </div>
                                 <div>
-                                    $5025
+                                    ${price}
                                 </div>
                             </div>    
                               
                     </div>
                         <div className={styles.bottomInfo}>
-                            <div class={styles.bottomInfoEach}>
+                            <div className={styles.bottomInfoEach}>
                                 <Link to='https://www.linkedin.com/in/alec-garcia-4159b0169/' className={styles.link}>Linkedin</Link>
                             </div>    
-                            <div class={styles.bottomInfoEach}>
+                            <div className={styles.bottomInfoEach}>
                                 <Link to='https://github.com/alecbrando/Digitize' className={styles.link}>Github</Link>
                             </div>    
                         </div>        

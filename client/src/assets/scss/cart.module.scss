@@ -1,9 +1,4 @@
-.cartContainer {
-    height: 70vh;
-    margin-top: 0px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
+
 
 .topContainer {
     height: 50vh;
@@ -17,6 +12,7 @@
 
 .leftPane {
     display: flex;
+    overflow: scroll;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
@@ -125,7 +121,8 @@
 }
 
 .bottomHalfCart {
-    height: 10vh;
+    height: 100%;
+    width: 100%;
 }
 
 .cartInfoItems{
@@ -133,4 +130,11 @@
     display: flex;
     justify-content: center;
     border-top: 1px solid black;
+}
+
+.cartContainer {
+    height: 70vh;
+    margin-top: 0px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }

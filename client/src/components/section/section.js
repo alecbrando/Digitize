@@ -5,9 +5,6 @@ import Button from '@material-ui/core/Button';
 
 export function Section(props) {
 
-    
-
-    console.log(props)
     const renderCameras = () => {
         if(props.data){
             return props.data.map(camera => {
@@ -21,8 +18,6 @@ export function Section(props) {
     useEffect(() => {
 
     }, [props.data])
-
-
 
     return (
         <div className={styles.container}>

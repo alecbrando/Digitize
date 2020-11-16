@@ -7,11 +7,17 @@ export const carts = (state = [], action) => {
         case ADD_TO_CART:
             nextState = [...state,action.camera]
             return nextState
-            // return { ...state, ...action.camera};
         case REMOVE_FROM_CART:
-            nextState = [...state.filter(camera => action.camera.id !== camera.id)]
+            let flag = false
+            nextState = [...state.filter((camera) => {
+                if (flag === false && action.cameraId === camera.id) {
+                    flag = true
+                } else {
+                    return camera
+                }
+            }
+            )]
             return nextState
-            return { ...state, camera: action.camera }
         default:
             return state
     }

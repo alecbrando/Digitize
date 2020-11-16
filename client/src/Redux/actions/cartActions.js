@@ -22,9 +22,9 @@ export const removeFromCart = (cameraId) => {
     }
 }
 
-export const removeCart = (camera) => {
+export const removeCart = (cameraId) => {
     return async dispatch => {
-        dispatch(removeFromCart(camera))
-        return camera
+        dispatch(removeFromCart(cameraId))
+        return cameraId
     }
 }
