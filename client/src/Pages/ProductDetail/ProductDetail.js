@@ -26,6 +26,7 @@ export default function ProductDetail() {
     useEffect(() => {
         let value = window.location.pathname.slice(9)
         dispatch(camera(value))  
+        window.scrollTo(0, 0)
     }, [])
 
     useEffect(() => {

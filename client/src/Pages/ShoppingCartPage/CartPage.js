@@ -6,7 +6,7 @@ import Header from '../../components/Header/Header'
 import styles from '../../assets/scss/cart.module.scss'
 import CustomCarousel from '../../components/Carousel/CarouselCamera'
 import { addCart, removeCart } from '../../Redux/actions/cartActions'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory, Link, Redirect } from 'react-router-dom'
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import CartTile from '../../components/CartTile/CartTile'
 
@@ -34,6 +34,12 @@ export default function CartPage() {
         cart.forEach(camera => total = total + camera.price);
         total = total.toFixed(2)
         setPrice(total)
+    }
+
+    if (!loggedIn){
+        return (
+            <Redirect to="/"/>
+        )
     }
 
     return (

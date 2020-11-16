@@ -10,8 +10,6 @@ class User(db.Model):
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(100), nullable = False)
 
-  wishList = db.relationship("WishList", back_populates="user")
-  cart = db.relationship("Cart", back_populates="user")
 
   def to_dict(self):
     return {
