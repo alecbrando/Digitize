@@ -16,8 +16,8 @@ function App() {
     const auth = useSelector(state => state.auth)
 
     useEffect(()=>{
-
-        const generateSession = async () => {
+        if(auth.id){
+            const generateSession = async () => {
 
                 const res = await fetch("/api/session/token/refresh", {
                     method: 'post',
@@ -33,6 +33,8 @@ function App() {
             }
             generateSession()
         }
+    }
+        
     ,[])
 
     useEffect(() => {
