@@ -18,7 +18,7 @@ export default function SignUpPage() {
 
 
   const onSignIn = () => {
-    dispatch(signup(email, password))
+    dispatch(signup(username, email, password))
   }
 
   if(currentId) return <Redirect to="/"/>
@@ -37,7 +37,7 @@ export default function SignUpPage() {
             <h2>Sign Up</h2>
           </div>
           <label htmlFor="username" className={styles.labelText}>Username</label>
-          <input type="text" name="username" className={styles.inputs} value={email} onChange={(e) => setUsername(e.target.value)} />
+          <input type="text" name="username" className={styles.inputs} value={username} onChange={(e) => setUsername(e.target.value)} />
           <label htmlFor="email" className={styles.labelText}>Email</label>
           <input type="text" name="email" className={styles.inputs} value={email} onChange={(e) => setEmail(e.target.value)} />
           <label htmlFor="password" className={styles.labelText}>Password</label>
