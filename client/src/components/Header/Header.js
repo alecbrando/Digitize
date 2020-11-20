@@ -39,9 +39,9 @@ export default function Header() {
       </NavLink>
 
       <div className={styles.header_right_links}>
-        <Button variant="outlined">Discover</Button>
+        {/* <Button variant="outlined">Discover</Button> */}
         {renderOut()}
-        <Button variant="outlined"><SearchIcon/></Button>
+        {/* <Button variant="outlined"><SearchIcon/></Button> */}
       </div>
     </div>
   )

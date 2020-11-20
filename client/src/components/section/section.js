@@ -23,7 +23,7 @@ export function Section(props) {
         <div className={styles.container}>
             <div className={styles.topSec}>
                 <h1 className={styles.topText}>{props.name}</h1>
-                <Button variant="outlined" >See All</Button>
+                {/* <Button variant="outlined" >See All</Button> */}
             </div>
             <div className={styles.tile}>
                 {renderCameras()}
