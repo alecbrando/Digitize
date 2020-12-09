@@ -7,6 +7,7 @@ import LandingPage from "./Pages/LandingPage/LandingPage"
 import LoginPage from './Pages/LoginPage/LoginPage'
 import SignUpPage from './Pages/SignupPage/SignupPage'
 import CartPage from './Pages/ShoppingCartPage/CartPage'
+import SearchPage from './Pages/SearchPage/SearchPage'
 
 import { retrieveCameras } from './Redux/actions/cameraActions'
 import ProductDetail from './Pages/ProductDetail/ProductDetail'
@@ -49,6 +50,7 @@ function App() {
             <Route path="/signup" component={SignUpPage} />
             <Route path="/cameras/:id" component={ProductDetail} />
             <Route path="/cart" component={CartPage} />
+            <Route path="/search" component={SearchPage}/>
         </Switch>
     </BrowserRouter>
   );

@@ -41,7 +41,7 @@ export default function Header() {
       <div className={styles.header_right_links}>
         <Button variant="outlined">Discover</Button>
         {renderOut()}
-        <Button variant="outlined"><SearchIcon/></Button>
+        <Button variant="outlined" onClick={() => history.push('/search')}><SearchIcon/></Button>
       </div>
     </div>
   )
