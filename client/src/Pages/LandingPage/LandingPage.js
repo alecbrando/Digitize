@@ -34,15 +34,15 @@ export default function LandingPage() {
         </div>
       </div>
       <div className={styles.pictureContainer}>
-        <Section name={'Nikon Collection'} data={cameras_first}/>
+        <Section name={'Nikon Collection'} data={cameras_first} brand="Nikon"/>
         <div className={styles.bannerContainer}>
           <Banner url={"https://i.imgur.com/SCoQg63.jpg"}/> 
         </div>
-        <Section name={'Sony Collection'} data={cameras_second}/>
+        <Section name={'Sony Collection'} data={cameras_second} brand="Sony"/>
         <div className={styles.bannerContainer}>
           <Banner url={"https://i.imgur.com/VV5uBT7.jpg"}/> 
         </div>
-        <Section name={'Canon Collection'} data={cameras_third}/>
+        <Section name={'Canon Collection'} data={cameras_third} brand="Canon"/>
       </div>
       <Footer/>
     </div>

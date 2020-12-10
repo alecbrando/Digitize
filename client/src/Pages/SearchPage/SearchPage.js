@@ -2,29 +2,20 @@ import React, { useState } from 'react';
 import Header from '../../components/Header/Header'
 import Footer from "../../components/Footer/Footer.js"
 import styles from '../../assets/scss/search.module.scss'
-import { NavLink, Redirect } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import { login } from '../../Redux/actions/authActions'
-import { useHistory } from 'react-router-dom'
+import {  useSelector } from 'react-redux';
 import Tile from '../../components/tile/tile'
 import SearchIcon from '@material-ui/icons/Search';
 
 
 export default function SearchPage() {
-    const dispatch = useDispatch();
     const [value, setValue] = useState('')
-    const history = useHistory()
-
     const cameras = useSelector(state => state.cameras)
 
 
     const renderCameras = () => {
-
         if(cameras) {
         return Object.keys(cameras).map((camera) => {
             const cameraInfo = cameras[camera]
-            // console.log(cameras)
             if (cameraInfo.title.includes(value)) {
                             return (
                                 <div className={styles.tileContainer}>
@@ -38,8 +29,6 @@ export default function SearchPage() {
 
     const handleSearch = (value) => {
         setValue(value)
-        console.log(value)
-        
     }
 
     return (
