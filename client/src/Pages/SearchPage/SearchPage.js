@@ -8,6 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 
 export default function SearchPage() {
+    window.scrollTo(0, 0)
     const [value, setValue] = useState('')
     const cameras = useSelector(state => state.cameras)
 
