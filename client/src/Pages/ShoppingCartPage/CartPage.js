@@ -30,7 +30,11 @@ export default function CartPage() {
     }
 
     const getPrice = () => {
-        let total = 0;
+        let total = 0
+        if(cart.length > 0){
+            total = 44.99;
+        }
+        
         cart.forEach(camera => total = total + camera.price);
         total = total.toFixed(2)
         setPrice(total)
