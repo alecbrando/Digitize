@@ -4,18 +4,14 @@ import { camera } from '../../Redux/actions/cameraActions'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import styles from '../../assets/scss/cart.module.scss'
-import CustomCarousel from '../../components/Carousel/CarouselCamera'
-import { addCart, removeCart } from '../../Redux/actions/cartActions'
 import { useHistory, Link, Redirect } from 'react-router-dom'
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import CartTile from '../../components/CartTile/CartTile'
 
 export default function CartPage() {
     const cart = useSelector(state => state.carts)
-    const data = useSelector(state => state.cameras.camera)
     const [price, setPrice]= useState(0)
     const loggedIn = useSelector(state => state.auth.id)
-    const history = useHistory()
     const dispatch = useDispatch()
     useEffect(() => {
         let value = window.location.pathname.slice(9)
