@@ -18,7 +18,7 @@ export const getCamera = (camera) => {
 
 export const retrieveCameras = () => {
     return async dispatch => {
-        const res = await fetch(`/api/cameras`)
+        const res = await fetch(`/api/cameras/`)
 
         if (res.ok) {
             const data = await res.json()
